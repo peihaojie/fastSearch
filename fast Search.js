@@ -4,13 +4,13 @@
 // @description   注意: 该脚实现选中文本快速复制，快速搜索的功能
 // @description   注意: 需要增加适配网站，请手动修改 @include
 // @include      *
-// @version       1.1.2
+// @version       1.1.4
 // @icon          https://raw.githubusercontent.com/peihaojie/Greasemonkey-script/master/icon.png
 // ==/UserScript==
 
 class InitSearch {
   #href =
-    "https://at.alicdn.com/t/font_3148281_0dzgbd69cnqn.css?spm=a313x.7781069.1998910419.44&file=font_3148281_0dzgbd69cnqn.css";
+    "https://at.alicdn.com/t/font_3148281_vf5cr0hy39.css?spm=a313x.7781069.1998910419.83&file=font_3148281_vf5cr0hy39.css";
 
   #style = `
     *::selection {
@@ -28,6 +28,7 @@ class InitSearch {
       box-shadow: 0px 0px 5px 2px #9e9e9e;
       overflow: hidden;
       display: flex;
+      z-index: 9999;
     }
 
     .search--btn__wrap .search--btn {
@@ -135,6 +136,11 @@ class InitSearch {
         url: "https://www.sogou.com/web?query=",
         title: "搜狗搜索",
         icon: "icon-sougoushuru",
+      },
+      {
+        url: "https://www.zhihu.com/search?q=",
+        title: "知乎搜索",
+        icon: "icon-shejiaotubiao-10",
       },
       {
         url: false,
