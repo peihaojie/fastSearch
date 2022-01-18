@@ -4,58 +4,62 @@
 // @description   注意: 该脚实现选中文本快速复制，快速搜索的功能
 // @description   注意: 需要增加适配网站，请手动修改 @include
 // @include      *
-// @version       1.1.5
+// @version       1.1.6
 // @icon          https://raw.githubusercontent.com/peihaojie/Greasemonkey-script/master/icon.png
 // ==/UserScript==
 
 class InitSearch {
-  #href =
-    "https://at.alicdn.com/t/font_3148281_vf5cr0hy39.css?spm=a313x.7781069.1998910419.83&file=font_3148281_vf5cr0hy39.css";
-
-  #style = `
-    *::selection {
-      background: #CCCCCC;
-      color: #3399CC;
-    }
-
-    .search--btn__wrap {
-      height: 30px;
-      border-radius: 5px;
-      background: #fff;
-      position: fixed;
-      cursor: pointer;
-      box-shadow: 0px 0px 5px 2px #9e9e9e;
-      overflow: hidden;
-      display: flex;
-      z-index: 9999;
-    }
-
-    .search--btn__wrap .search--btn {
-      cursor: pointer;
-      width: 30px;
-      height: 30px;
-      font-size: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .search--btn__wrap .search--btn:hover {
-      background-color: #9e9e9e;
-    }
-  `;
   constructor() {
+    this.initStatic();
     this.initStyle();
     this.mouseupListener();
+  }
+
+  initStatic() {
+    this.href =
+      "https://at.alicdn.com/t/font_3148281_vf5cr0hy39.css?spm=a313x.7781069.1998910419.83&file=font_3148281_vf5cr0hy39.css";
+
+    this.style = `
+      *::selection {
+        background: #CCCCCC;
+        color: #3399CC;
+      }
+
+      .search--btn__wrap {
+        height: 30px;
+        border-radius: 5px;
+        background: #fff;
+        position: fixed;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px 2px #9e9e9e;
+        overflow: hidden;
+        display: flex;
+        z-index: 9999;
+      }
+
+      .search--btn__wrap .search--btn {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .search--btn__wrap .search--btn:hover {
+        background-color: #9e9e9e;
+      }
+    `;
   }
 
   initStyle() {
     const stylesheet = document.createElement("link");
     stylesheet.rel = "stylesheet";
-    stylesheet.href = this.#href;
+    stylesheet.href = this.href;
     document.head.appendChild(stylesheet);
     const style = document.createElement("style");
-    const styleText = document.createTextNode(this.#style);
+    const styleText = document.createTextNode(this.style);
     style.appendChild(styleText);
     document.head.appendChild(style);
   }
