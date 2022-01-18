@@ -19,7 +19,6 @@ class InitSearch {
     }
 
     .search--btn__wrap {
-      width: 180px;
       height: 30px;
       border-radius: 5px;
       background: #fff;
