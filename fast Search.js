@@ -4,7 +4,7 @@
 // @description   注意: 该脚实现选中文本快速复制，快速搜索的功能
 // @description   注意: 需要增加适配网站，请手动修改 @include
 // @include      *
-// @version       1.1.4
+// @version       1.1.5
 // @icon          https://raw.githubusercontent.com/peihaojie/Greasemonkey-script/master/icon.png
 // ==/UserScript==
 
