@@ -1,13 +1,18 @@
 // ==UserScript==
 // @name          fast search
 // @namespace     https://github.com/peihaojie/fastSearch
-// @description   注意: 该脚实现选中文本快速复制，快速搜索的功能
+// @author        HaoJie
+// @description   该脚实现选中文本快速复制，快速搜索的功能
 // @description   注意: 需要增加适配网站，请手动修改 @include
+// @updateURL     https://greasyfork.org/zh-CN/scripts/438716-fast-search
+// @downloadURL   https://greasyfork.org/zh-CN/scripts/438716-fast-search
+// @supportURL    https://github.com/peihaojie/fastSearch/issues
+// @run-at document-body
+// @resource      https://at.alicdn.com/t/font_3148281_vf5cr0hy39.css?spm=a313x.7781069.1998910419.83&file=font_3148281_vf5cr0hy39.css
 // @include      *
-// @version       1.1.6
+// @version       1.1.7
 // @icon          https://raw.githubusercontent.com/peihaojie/Greasemonkey-script/master/icon.png
 // ==/UserScript==
-
 class InitSearch {
   constructor() {
     this.initStatic();
@@ -184,6 +189,4 @@ class InitSearch {
   }
 }
 
-window.onload = () => {
-  new InitSearch();
-};
+new InitSearch();
