@@ -56,16 +56,20 @@ class InitSearch {
         background-color: #9e9e9e;
       }
 
+      .iconfont::before {
+        z-index: 1;
+      }
+
       .iconfont::after {
         content: attr(after);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // bottom: 0;
+        // left: 0;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
         font-size: 12px;
       }
     `;
@@ -183,7 +187,6 @@ class InitSearch {
     const search = document.createElement("div");
     search.classList.add("search--btn", "iconfont", icon);
     search.setAttribute("title", title);
-    search.setAttribute("after", after);
     search.addEventListener("mouseup", (e) => {
       const text = btn.getAttribute("data-text");
       switch (url) {
@@ -198,6 +201,14 @@ class InitSearch {
       document.body.removeChild(btn);
     });
     btn.appendChild(search);
+    setTimeout(() => {
+      const content = window
+        .getComputedStyle(search, "before")
+        .getPropertyValue("content");
+      if (content === "none") {
+        search.setAttribute("after", after);
+      }
+    }, 100);
   }
 
   copyText(text) {
